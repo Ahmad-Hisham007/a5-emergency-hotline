@@ -21,7 +21,7 @@
         </div>
         <div class="buttons flex md:items-center items-stretch gap-5 flex-col md:flex-row md:w-auto w-full">
             <div class="bookmarks flex justify-between items-center gap-[10px] px-9 py-[12px] rounded-[50px] bg-[#41FF6B10]">
-                <span class="bookmark-number font-black font-body text-lg">
+                <span class="bookmark-number font-black font-body text-lg" id="bookmark-count">
                     0
                 </span>
                 <span class="bookmark-icon">
@@ -29,7 +29,7 @@
                 </span>
             </div>
             <div class="coins flex justify-between items-center gap-[10px] px-9 py-[12px] rounded-[50px] bg-[#41FF6B10]">
-                <span class="coin-number font-black font-body text-lg">
+                <span class="coin-number font-black font-body text-lg" id="available-coins">
                     100
                 </span>
                 <span class="coin-icon">
@@ -37,7 +37,7 @@
                 </span>
             </div>
             <div class="copies flex justify-between items-center gap-1 px-9 py-[12px] rounded-[50px]  font-medium font-body text-lg text-white bg-primary-custom">
-                <span class="copy-number">
+                <span class="copy-number" id="available-copy-number">
                     0
                 </span>
                 <span class="copy-label">
@@ -59,7 +59,7 @@
 
     <section class="page-content md:px-15 px-5 md:py-12 py-10 bg-light-bg flex md:flex-row flex-col gap-8">
         <div class="service-cards grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 md:flex-row md:flex-4 flex-1 gap-[30px]">
-            <div class="card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
+            <div class="service-card card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
                 <div class="flex justify-between items-center">
                     <span class="p-[14px] rounded-[15px] bg-[#FFE3E2]"><img
                     src="assets/emergency.png"
@@ -80,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card bg-base-100 w-auto p-8 transition-all duration-300"  style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
+            <div class="service-card card bg-base-100 w-auto p-8 transition-all duration-300"  style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
                 <div class="flex justify-between items-center">
                     <span class="p-[14px] rounded-[15px] bg-[#DFEFFF]"><img
                     src="assets/police.png"
@@ -101,7 +101,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
+            <div class="service-card card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
                 <div class="flex justify-between items-center">
                     <span class="p-[14px] rounded-[15px] bg-[#FFE3E2]"><img
                     src="assets/fire-service.png"
@@ -122,7 +122,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
+            <div class="service-card card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
                 <div class="flex justify-between items-center">
                     <span class="p-[14px] rounded-[15px] bg-[#FFE3E2]"><img
                     src="assets/ambulance.png"
@@ -143,7 +143,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
+            <div class="service-card card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
                 <div class="flex justify-between items-center">
                     <span class="p-[14px] rounded-[15px] bg-[#FFE3E2]"><img
                     src="assets/emergency.png"
@@ -164,7 +164,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
+            <div class="service-card card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
                 <div class="flex justify-between items-center">
                     <span class="p-[14px] rounded-[15px] bg-[#FFE3E2]"><img
                     src="assets/emergency.png"
@@ -185,7 +185,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
+            <div class="service-card card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
                 <div class="flex justify-between items-center">
                     <span class="p-[14px] rounded-[15px] bg-[#FFE3E2]"><img
                     src="assets/emergency.png"
@@ -206,7 +206,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
+            <div class="service-card card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
                 <div class="flex justify-between items-center">
                     <span class="p-[14px] rounded-[15px] bg-[#FFE3E2]"><img
                     src="assets/brac.png"
@@ -227,7 +227,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
+            <div class="service-card card bg-base-100 w-auto p-8 transition-all duration-300" style="box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);">
                 <div class="flex justify-between items-center">
                     <span class="p-[14px] rounded-[15px] bg-[#FFE3E2]"><img
                     src="assets/Bangladesh-Railway.png"
@@ -255,9 +255,9 @@
                     <span class="text-gray-500"><i class="fa-regular fa-clock text-2xl"></i></span>
                     <span class="font-medium text-xl leading-7 font-primary ">Call History</span>
                 </div>
-                <button class="history-clear-bttn bg-primary-custom text-white !px-9 !py-[14px] rounded-[50px] font-medium font-primary">Clear</button>
+                <button class="history-clear-bttn bg-primary-custom text-white !px-9 !py-[14px] rounded-[50px] font-medium font-primary cursor-pointer" id="history-clear-bttn">Clear</button>
             </div>
-            <ul class="history-list mt-4">
+            <ul class="history-list mt-4 flex flex-col gap-4" id="history-container">
                 <li class="history-item flex justify-between items-center p-4 rounded-lg bg-gray-100">
                     <span>
                         <h3 class="text-[18px] font-medium font-primary">
