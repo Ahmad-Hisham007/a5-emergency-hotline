@@ -1,165 +1,74 @@
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-005
+### 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
+# Answer: 
+### Difference between getElementById, getElementsByClassName:
+* getElementById selects only the first element that is found on the HTMl document. If there is any other elements come after the first element with same ID, the query will not select them and ignore them; Instead getElementsByClassName returns all the elements those contain the class name mentioned in the paramater. 
 
-### 📅 Deadline For 60 marks: 29th August, 2025 (11:59 pm ⏱️)
+* getElementById returns a single element; instead getElementsByClassName returns a HTML live collection most likely an array. 
 
-### 📅 No Deadline For 50 marks
+* getElementById is a method to return or query an element by given "id" string without any symbol; instead getElementsByClassName is a method to return or query all the elements by given "class" string without any symbol. 
 
-### 📅 Deadline For 30 marks: Any time after 29th August.
+*  If no element is found, the getElementById method returns: null; instead in getElementsByClassName, If no elements are found, it returns an empty HTMLCollection like an empty array.
 
----
+### Difference between querySelector, querySelectorAll:
 
-## ✅ Main Requirements (50 Marks)
+* querySelector is a method to query the first single element matches with given CSS selector; Instead querySelectorAll returns all the elements match with the given CSS selector- in a static node list.
 
-### 1. Navbar
+* In querySelector method, if no element found with the given selector it will return null; Instead  querySelectorAll in this case will return a empty nodelist like an empty array.
 
-- **Website name & logo** on the left as Figma
-- **Heart icon, coin count (default-100), and Copy Count** on the right as Figma
 
----
+### Difference between getElementById, getElementsByClassName and querySelector / querySelectorAll:
 
-### 2. Hero Section
+* getElementById, getElementsByClassName these method's paramater indicates to a strict and specific type of CSS selector. So adding arguments in the method's paramater, the string should be with no extra symbol. So getElementById will accept only "id" with no # symbol and getElementsByClassName will accept only "className" no . symbol; Instead querySelector / querySelectorAll- these methods accept any CSS selector, and these not indicate to a specific type of html attribute value or CSS selector. That means the full CSS selector should be added in the paramater as same as CSS selectors written in the css style. So any symbol of specific slector type should be and can be added in the paramater. 
 
-- **Background Gradient** in the Whole Section
-- **A Relevant Logo** at the top-center
-- **Section Title** in the center
-- **A Relevant Slogan** in the bottom Center
+* getElementsByClassName returns a live HTML collection like array, updating the html collection with the same same given class, or deleting any of them or adding new item will also update the array like collection; Instead querySelectorAll returns a array like static nodelist. So updating , deleting or adding new elements or nodes in the list will not update the node list. The nodelist will only query the nodes when this function called first time. 
 
----
+* The array like HTML collection getElementsByClassName returns it is iterable similarly as array, but the all iteration methods of array are not supported in this method, because .forEach() this method can't be use to iterate getElementsByClassName method's returned collection; Instead querySelectorAll supports the .forEach() iteration method and also can be iterated as similar as an array. 
 
-### 2. Main Section
+### 2. How do you create and insert a new element into the DOM?
 
-This Section will have layout as figma
+### Answer: 
+* To create a new element I will use this method: document.createElement("tagName")
 
-<table border=1 width="100%" cellpadding="50">
-<tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
- </tr>
- <tr>
-    <td colspan=9 >Card Section</td>
-    <td colspan=3>History Section</td>
- </tr>
-</table>
+* After creating an element the element is not visible to the document visitors and diconnected from the DOM tree, for that we will have to append it in any of the DOM element's chain. For this I will use: parentNode.appendChild(newNode)  --- The parentNode is the variable name of the element that I queried to put the new element under that. And the newNode is the variable name of our current new node that we are appending to the DOM tree. 
 
-### Emergency Hotline Section
+### 3. What is Event Bubbling and how does it work?
 
-- **Show Minimum 6 cards**. Each card will contain:
-  - Icon or Image
-  - Relevant Name
-  - Relevant Name in English
-  - Hotline number for calling
-  - Category Badge
-  - 💗 icon at left
-  - **2 buttons** at the bottom: Copy and Call with icons as Figma
+### Answer: 
 
-### History Section
+* Event bubbling is a fundamental concept in JavaScript that describes how events propagate through the DOM tree.
 
-- **A white Background** in the whole section
-- **History Title with icon** at the top-left as Figma
-- **Clear History Button** at the top-right as Figma
+### How it works: 
 
----
+* Event Bubbling is a phase in the event propagation model where an event starts from the most specific target element (the one that was triggered, for example the one that is clicked in the click event) and then "bubbles up" or propagates outward through its ancestor elements in the DOM hierarchy, all the way up to the window object.
 
-### 3. Responsiveness (5 Marks)
+* For example, basically the event firstly propagates the DOM tree from top to bottom: window -> document -> <html> -> <body> -> ... -> target
+After it reaches to the target element, it goes from this element to the top ansector again one by one: target -> ... -> <body> -> <html> -> document -> window -- This upward propagation. This one what we call by Event Bubbling. So this means if the target elements parent and grandparent also has any event. Then the target element then the parent and then the grandparent all will be triggered in Event bubble. 
 
-- Website should be fully **responsive for mobile devices** (implementation up to you)
 
----
+### What is Event Delegation in JavaScript? Why is it useful?
 
-## Functionalities
+# Answer: 
 
-### 4. Heart Icons
+* Event Delegation is the practice of attaching a single event listener to a parent element to handle events that are triggered on its child elements. Instead of adding listeners to each individual child, we let the events from the children "bubble up" to a common parent and handle them there.
 
-- Clicking on the 💗 **heart icon** of any card will increase the count in the Navbar
+# Why is it useful: 
 
----
+* We can prevent the bubble up in useful cases by adding the event listener in it's parent.
 
-### 5. Call Buttons
+* Inside the listener, we can check the event.target property to see which specific child element originally triggered the event.
 
-- On clicking a card's **Call Button**, following actions will happen:
-  - Show an **alert** with a message including the service name and number
-  - Each call will **cut 20 coins**. Reduce Coin after each click.
-  - If coins are less than 20, show a relevant alert and terminate the process.
-  - Add this service into the **Call History section** with:
-    - Service name
-    - Service number
+* Then, we can take the appropriate action based on which child was clicked.
 
----
+* Attaching a single event listener instead of hundreds or thousands in every single child element. This consumes far less memory and is much easier on the browser, especially for large applications.
 
-### 5. Call History Section
+*  Don't need to manually add and remove event listeners every time we add or delete elements from the DOM. Any child element added in the future will automatically trigger the event on the parent when clicked. This is its biggest advantage.
 
-- Show all called services with name & number. This will empty initially. when call button clicked it will filled dynamically.
-- A **Clear History button** on the right
-- Clicking this button will remove all data from call history
+* Simplifies Code and Memory Management. There's less code to write and maintain. 
 
----
 
-## Create Readme
+### What is the difference between preventDefault() and stopPropagation() methods?
 
-You have to create a `Readme.md` file. and write down following questions. Dont Try to copy paste from AI Tools. Just write what you know about these. If you don't know , then search , learn , understand and then write.
+# Ans: 
 
-### 6. Answer the following questions clearly:
-
-1. What is the difference between **getElementById, getElementsByClassName, and querySelector / querySelectorAll**?
-2. How do you **create and insert a new element into the DOM**?
-3. What is **Event Bubbling** and how does it work?
-4. What is **Event Delegation** in JavaScript? Why is it useful?
-5. What is the difference between **preventDefault() and stopPropagation()** methods?
-
----
-
-## 🧪 Challenges Part (10 Marks)
-
-- On clicking the **Copy button**, show an alert and **increase the copy count** (3 Marks)
-
-- Hotline number will be **copied on click** so it can be pasted anywhere (4 Marks)
-
-💡Hint: You can ask for Help from `ChatGPT` Mamma . Just copy the below prompt , generate answer. use it with your own way.
-
-```bash
-I have a card with some text and a button inside it. I want that when a user clicks the button, some specific text from the card is copied to the clipboard using JavaScript. Please provide the code and explain it step by step.
-```
-
-- After clicking on the **Call button**, the **exact time of the call** will be shown in the Call History section (3 Marks)
-
-💡Hint: Search Google with that below question
-
-```bash
-How to get current local time in js
-```
-
----
-
-## ⚙️ Technology Stack
-
-- HTML
-- CSS ( Vanilla , Tailwind CSS , DaisyUI , Others - wheatever you like )
-- JavaScript ( Vanilla only. No Framework / Library Allowed )
-
----
-
-## 📌 Rules
-
-- ✅ Minimum **5 meaningful commits** required
-- ❌ No Lorem Ipsum or dummy placeholder text. Use **relevant content only**
-
----
-
-## 🔗 What to Submit
-
-- 📂 **GitHub Repository**
-- 🌐 **Live Link**
-
----
-
-# Let's Code and Achieve your Dream 🎯
+* preventDefault() cancels the browser's default behavior for the event (e.g., anchor link, form submission). --- Event propagation:	Continues (bubbles/captures normally).
+* stopPropagation()	Stops the event from moving up (bubbling) or down (capturing) the DOM tree.	Default behavior for the event still occurs. Event propagation: Stopped. Other elements that are target element's parent or child won't hear the event. That means the event will not propagate it from top to bottom or bottom to top of the DOM tree. 
