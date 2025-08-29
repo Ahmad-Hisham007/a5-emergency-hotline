@@ -45,7 +45,7 @@
 After it reaches to the target element, it goes from this element to the top ansector again one by one: target -> ... -> <body> -> <html> -> document -> window -- This upward propagation. This one what we call by Event Bubbling. So this means if the target elements parent and grandparent also has any event. Then the target element then the parent and then the grandparent all will be triggered in Event bubble. 
 
 
-### What is Event Delegation in JavaScript? Why is it useful?
+### 4. What is Event Delegation in JavaScript? Why is it useful?
 
 # Answer: 
 
@@ -66,7 +66,7 @@ After it reaches to the target element, it goes from this element to the top ans
 * Simplifies Code and Memory Management. There's less code to write and maintain. 
 
 
-### What is the difference between preventDefault() and stopPropagation() methods?
+### 5. What is the difference between preventDefault() and stopPropagation() methods?
 
 # Ans: 
 
