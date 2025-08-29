@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+@theme{
+    --font-primary: "Hind Madurai", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --color-primary-custom: #00A63E;
+    --color-light-bg: rgba(65, 255, 107, 0.1);
+}
